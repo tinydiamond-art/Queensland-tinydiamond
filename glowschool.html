@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUEENSLAND Glitch Effect</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap');
+
+        /* Background Animation */
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            background: black;
+            animation: bgLoop 6s infinite alternate linear;
+        }
+
+        @keyframes bgLoop {
+            0% { background: black; }
+            25% { background: darkred; }
+            50% { background: darkblue; }
+            75% { background: darkgreen; }
+            100% { background: purple; }
+        }
+
+        /* Glowing and Glitching QUEENSLAND Text */
+        .glitch-text {
+            font-size: 90px;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            position: relative;
+            transition: all 0.3s ease-in-out;
+            animation: glowLoop 3s infinite linear;
+        }
+
+        /* Glowing Colors */
+        @keyframes glowLoop {
+            0% { text-shadow: 0 0 20px red, 0 0 40px red; color: red; }
+            25% { text-shadow: 0 0 20px cyan, 0 0 40px cyan; color: cyan; }
+            50% { text-shadow: 0 0 20px yellow, 0 0 40px yellow; color: yellow; }
+            75% { text-shadow: 0 0 20px lime, 0 0 40px lime; color: lime; }
+            100% { text-shadow: 0 0 20px purple, 0 0 40px purple; color: purple; }
+        }
+
+        /* Glitch Effect */
+        .glitch-text::before,
+        .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .glitch-text::before {
+            left: 2px;
+            text-shadow: -2px 0 red;
+            animation: glitch 0.3s infinite;
+        }
+
+        .glitch-text::after {
+            left: -2px;
+            text-shadow: -2px 0 cyan;
+            animation: glitch 0.3s infinite reverse;
+        }
+
+        @keyframes glitch {
+            0% { clip-path: inset(0 0 50% 0); }
+            25% { clip-path: inset(30% 0 20% 0); }
+            50% { clip-path: inset(10% 0 30% 0); }
+            75% { clip-path: inset(40% 0 10% 0); }
+            100% { clip-path: inset(0 0 50% 0); }
+        }
+
+        /* Bigger Copyright Text */
+        .copyright {
+            font-size: 20px; /* Bigger size */
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+            bottom: 20px;
+            text-align: center;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="glitch-text" data-text="QUEENSLAND">QUEENSLAND</h1>
+    <p class="copyright">© 2025 TinyDiamond. All rights reserved.</p>
+</body>
+</html>
